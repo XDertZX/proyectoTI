@@ -18,5 +18,6 @@ public class Categoria {
     @NotBlank (message = "El Nombre de la Categoria no puede estar en blanco")
     private String nombre;
 
+    @NotNull ()
    
 }
