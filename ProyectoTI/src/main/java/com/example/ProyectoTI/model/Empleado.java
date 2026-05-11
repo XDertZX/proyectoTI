@@ -1,6 +1,5 @@
 package com.example.ProyectoTI.model;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,7 +49,7 @@ public class Empleado {
     private String rut_empleado;
 
     @Column(nullable = false)
-    @NotBlank(message = "El empleado debe contar con una fecha de ignreso.")
+    @NotNull(message = "El empleado debe contar con una fecha de ignreso.")
     private Date fecha_ingreso;
 
 }
