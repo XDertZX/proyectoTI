@@ -21,8 +21,9 @@ public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_marca;
+    private Integer id_marca;
 
+    @NotBlank (message="el Nombre de la marca no puede estar vacio")
     @Column(nullable = false)
     private String nombre_marca;
     

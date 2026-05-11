@@ -23,16 +23,18 @@ public class TipoEmpleado {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id_tipoEmpleado;
+    private Integer id_tipoEmpleado;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
+    @NotBlank (message ="El nombre del puesto no puede estar vacio")
     private String puesto;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
+    @NotBlank (message="El tipo de empleado no puede estar vacio")
     private String tipo_empleado;
     
-    @Column(nullable = false)
-    @Min(value = 500000, message = "El minimo de salario debe de ser igual o mayor a clp $500.000")
+    @Column(nullable = false, precision = 10, scale = 0)
+    @NotNull (message= "El salario del empleado no puede estar vacio")
     private Double salario;
 
 }

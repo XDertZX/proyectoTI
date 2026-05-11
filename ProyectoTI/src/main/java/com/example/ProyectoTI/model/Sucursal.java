@@ -22,12 +22,14 @@ public class Sucursal {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_sucursal;
+    private Integer id_sucursal;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
+    @NotBlank(message = "La calle es obligatoria")
     private String calle;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
+    @NotBlank(message = "El número de calle es obligatorio")
     private String numero_calle;
 
 

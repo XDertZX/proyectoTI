@@ -22,9 +22,10 @@ public class Comuna {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_comuna;
+    private Integer id_comuna;
     
     @Column(nullable = false)
+    @NotBlank(message = "La comuna debe tener un Nombre.")
     private String nombre_comuna;
 
 }

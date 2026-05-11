@@ -25,17 +25,30 @@ public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_empleado;
+    private Integer id_empleado;
+
+    @ManyToOne
+    @JoinTable(name = "id_tipoEmpleado")
+    private TipoEmpleado tipoEmpleado;
+
+    @ManyToOne
+    @JoinTable(name = "id_sucursal")
+    private Sucursal sucursal;
 
     @Column(nullable = false)
+    @NotBlank(message = "El empleado debe contar con un nombre")
+    private String nombre_empleado;
+
+    @Column(nullable = false)
+    @NotBlank(message = "El empleado debe contar con un puesto.")
     private String puesto_empleado;
 
     @Column(unique=true, length = 13, nullable = false)
+    @NotBlank(message = "El empleado debe contener un rut.")
     private String rut_empleado;
 
     @Column(nullable = false)
+    @NotBlank(message = "El empleado debe contar con una fecha de ignreso.")
     private Date fecha_ingreso;
-
-
 
 }

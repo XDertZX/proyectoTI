@@ -24,8 +24,9 @@ public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_region;
+    private Integer id_region;
     
+    @NotBlank (message="el nombre de la region no puede estar vacio")
     @Column(nullable = false)
     private String nombre_region;
     
