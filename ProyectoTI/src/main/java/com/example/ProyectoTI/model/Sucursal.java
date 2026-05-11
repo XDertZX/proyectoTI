@@ -5,9 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,14 @@ public class Sucursal {
     @Column(nullable = false, length = 10)
     @NotBlank(message = "El número de calle es obligatorio")
     private String numero_calle;
+
+    @ManyToOne
+    @JoinColumn(name = "id_comuna")
+    private Comuna comuna;
+
+    @ManyToOne
+    @JoinColumn(name = "id_region")
+    private Region region;
 
 
 }

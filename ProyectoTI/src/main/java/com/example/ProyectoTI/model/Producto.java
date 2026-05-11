@@ -9,13 +9,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "producto")
@@ -36,9 +34,9 @@ public class Producto {
     @Column(nullable = false)
     private String descripcion_producto;
 
-    @Column(length= 8 ,nullable = false)
-    @Min(value = 0)
+    @Column(nullable = false)
     @NotNull(message = "El producto debe contar con un precio.")
+    @Min(value = 0)
     private Double precio_producto;
 
     @ManyToOne

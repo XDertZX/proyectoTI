@@ -39,7 +39,8 @@ public class Venta {
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
-    @Column
+    @Column(nullable = false)
+    @NotNull
     private Date fecha_venta;
 
     @Column

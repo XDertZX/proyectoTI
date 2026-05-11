@@ -6,9 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,15 +27,14 @@ public class Cliente {
     @NotBlank (message="El rut del cliente no puede estar vacio")
     @Column(unique=true, length = 13, nullable = false)
     private String rut_cliente;
-
-    @NotBlank (message="el nombre del cliente no puede estar vacio")
-    @Column(nullable = false)
-    @Min(value = 2)
-    @Max(value = 35)
+    
+    @NotBlank(message="el nombre del cliente no puede estar vacio")
+    @Column(nullable = false, length = 35)
+    @Size(min = 2, max = 35)
     private String nombre_cliente;
 
     @NotBlank (message="el telefono del cliente no puede estar vacio")
-    @Column(length = 12, nullable = true)
+    @Column(length = 12, nullable = false)
     private String telefono_cliente;
 
     @NotBlank (message="el email del cliente no puede estar vacio")
